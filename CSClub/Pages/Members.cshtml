@@ -1,0 +1,47 @@
+﻿@page
+@model CSClub.Pages.MembersModel
+@{
+}
+
+
+<h1 class="text-center" style="margin-bottom: 50px">CS Club Member List</h1>
+
+<div class="text-center" style="margin-top: 20px">
+    <table class="table">
+        <thead>
+            <tr>
+                <td>
+                    Name
+                    <a class="sort-link-button" href="?sortBy=name">&#x25BC;</a>
+                    <a class="sort-link-button" href="?sortBy=name&toggle=a">&#x25B2;</a>
+                </td>
+                <td>
+                    Grade
+                    <a class="sort-link-button" href="?sortBy=grade">&#x25BC;</a>
+                    <a class="sort-link-button" href="?sortBy=grade&toggle=a">&#x25B2;</a>
+                </td>
+                <td>
+                    Meetings Attended
+                    <a class="sort-link-button" href="?sortBy=meetings">&#x25BC;</a>
+                    <a class="sort-link-button" href="?sortBy=meetings&toggle=a">&#x25B2;</a>
+                </td>
+                <td>Is Co-President</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var m in Model.Members)
+            {
+                <tr>
+                    <td>@m.Name</td>
+                    <td>@m.Grade</td>
+                    <td>@m.MeetingsAttended</td>
+                    <td>@m.IsCoPresident</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <a class="btn btn-primary btn-lg" asp-page="/Account/Login" style="margin-top: 50px">Edit List</a>
+</div>

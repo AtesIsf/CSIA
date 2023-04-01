@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/IA-CSClub.props" />
+</Project>
