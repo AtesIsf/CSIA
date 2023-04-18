@@ -25,19 +25,17 @@
                     <td>
                         @m.MeetingsAttended
                         <!--Input-->
-                        <form method="post">
+                        <form method="post" asp-page-handler="OnPostModifyMeetingsAttended">
                             <input type="hidden" name="id" value="@m.Id" />
-                            <input type="hidden" name="methodToCall" value="ModifyMeetingsAttended"/>
-                            <button type="submit" name="param1" value="true" class="sort-link-button">+</button>
-                            <button type="submit" name="param2" value="true" class="sort-link-button">-</button>
+                            <button type="submit" name="inc" value="true" class="sort-link-button">+</button>
+                            <button type="submit" name="dec" value="true" class="sort-link-button">-</button>
                         </form>
                     </td>
                     <td>@m.IsCoPresident</td>
                     <td>
                         <!--Input-->
-                        <form method="post">
+                        <form method="post" asp-page-handler="OnPostDeleteMember">
                             <input type="hidden" name="id" value="@m.Id" />
-                            <input type="hidden" name="methodToCall" value="DeleteMember" />
                             <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
                     </td>
@@ -47,15 +45,13 @@
     </table>
     <div>
         <!--Input-->
-        <form method="post">
-            <input type="hidden" name="methodToCall" value="AddMember" />
-
-            <label for="param1">Name</label>
+        <form method="post" asp-page-handler="OnPostAddMember">
+            <label for="name">Name</label>
             <input type="text" name="param1" />
 
             <br />
 
-            <label for="param2">Grade</label>
+            <label for="grade">Grade</label>
             <input type="text" name="param2" />
 
             <br />

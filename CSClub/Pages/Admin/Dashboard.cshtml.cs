@@ -39,25 +39,14 @@ public class DashboardModel : PageModel
 		return RedirectToPage("/Admin/Login");
 	}
 
-	// TODO: DEBUG
-	public async Task<IActionResult> OnPostAsync()
+    // TOOD: FIX THIS PART OF THIS PROGRAM
+    #region ShouldBeFixed
+    public IActionResult OnPostModifyMeetingsAttended()
 	{
-        string? methodToCall = Request.Form["methodToCall"];
-        int memberId = Convert.ToInt32(Request.Form["id"]);
-        string? param1 = Request.Form["param1"];
-        string? param2 = Request.Form["param2"];
+        int id = Convert.ToInt32(Request.Form["id"]);
+		bool inc = Convert.ToBoolean(Request.Form["inc"]);
+		bool dec = Convert.ToBoolean(Request.Form["dec"]);
 
-        if (methodToCall == "ModifyMeetingAttended")
-			return await ModifyMeetingsAttended(memberId, Boolean.Parse(param1), Boolean.Parse(param2));
-		if (methodToCall == "DeleteMember")
-			return await DeleteMember(memberId);
-		if (methodToCall == "AddMember")
-			return await AddMember(param1, param2);
-		return Page();
-	}
-
-	private async Task<IActionResult> ModifyMeetingsAttended(int id, bool inc, bool dec)
-	{
         using (_context)
         {
             var selectedMember = Members.First(x => x.Id == id);
@@ -68,14 +57,16 @@ public class DashboardModel : PageModel
             else if (dec && (selectedMember.MeetingsAttended > 0))
                 selectedMember.MeetingsAttended--;
 
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
 		return Page();
     }
 
-	private async Task<IActionResult> DeleteMember(int id)
+	public IActionResult OnPostDeleteMember()
 	{
-		using (_context)
+		var id = Convert.ToInt32(Request.Form["id"]);
+
+        using (_context)
 		{
 			var selectedMember = Members.First(x => x.Id == id);
 
@@ -83,20 +74,24 @@ public class DashboardModel : PageModel
 			_context.Remove(selectedMember);
 
 			Members.Sync(_context);
-			await _context.SaveChangesAsync();
+			_context.SaveChanges();
 		}
 		return Page();
 	}
 
-	private async Task<IActionResult> AddMember(string name, string grade)
+	public IActionResult OnPostAddMember()
 	{
-		using (_context)
+		var name = Request.Form["name"];
+        var grade = Request.Form["grade"];
+
+        using (_context)
 		{
 			_context.Members.Add(new ClubMember(name, grade));
 			Members.Sync(_context);
-			await _context.SaveChangesAsync();
+			_context.SaveChanges();
 		}
 		return Page();
 	}
+    #endregion
 }
 
