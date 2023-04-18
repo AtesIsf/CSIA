@@ -12,10 +12,12 @@ namespace CSClub.Pages;
 
 public class MembersModel : PageModel
 {
+    // Props
     public MemberDynArr Members { get; set; }
 
     private ApplicationDbContext _context;
 
+    // Ctors
     public MembersModel(ApplicationDbContext context)
     {
         _context = context;
@@ -35,15 +37,13 @@ public class MembersModel : PageModel
     
     }
 
-    public void OnGet(string? sortBy, string? toggle)
+    // Methods
+    public IActionResult OnPost()
     {
-        if (sortBy?.ToLower() == "name")
-            Members.SortByName(toggle);
+        var sortBy = Request.Form["sortBy"];
+        var toggle = Request.Form["toggle"];
 
-        else if (sortBy?.ToLower() == "grade")
-            Members.SortByGrade(toggle);
-
-        else if (sortBy?.ToLower() == "meetings")
-            Members.SortByMeetings(toggle);
+        Members.Sort(sortBy, toggle);
+        return Page();
     }
 }   

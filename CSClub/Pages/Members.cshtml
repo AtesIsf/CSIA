@@ -10,21 +10,29 @@
     <table class="table">
         <thead>
             <tr>
-                <!--TODO: CHANGE THESE TO FORM INPUTS-->
                 <td>
                     Name
-                    <a class="sort-link-button" href="?sortBy=name">&#x25BC;</a>
-                    <a class="sort-link-button" href="?sortBy=name&toggle=a">&#x25B2;</a>
+                    <form method="post" asp-page-handler="OnPost">
+                        <input type="hidden" name="sortBy" value="name" />
+                        <button class="sort-link-button" type="submit" name="toggle" value="descending">&#x25BC;</button>
+                        <button class="sort-link-button" type="submit" name="toggle" value="ascending">&#x25B2;</button>
+                    </form>
                 </td>
                 <td>
                     Grade
-                    <a class="sort-link-button" href="?sortBy=grade">&#x25BC;</a>
-                    <a class="sort-link-button" href="?sortBy=grade&toggle=a">&#x25B2;</a>
+                    <form method="post" asp-page-handler="OnPost">
+                        <input type="hidden" name="sortBy" value="grade" />
+                        <button class="sort-link-button" type="submit" name="toggle" value="descending">&#x25BC;</button>
+                        <button class="sort-link-button" type="submit" name="toggle" value="ascending">&#x25B2;</button>
+                    </form>
                 </td>
                 <td>
                     Meetings Attended
-                    <a class="sort-link-button" href="?sortBy=meetings">&#x25BC;</a>
-                    <a class="sort-link-button" href="?sortBy=meetings&toggle=a">&#x25B2;</a>
+                    <form method="post" asp-page-handler="OnPost">
+                        <input type="hidden" name="sortBy" value="meetingsAttended" />
+                        <button class="sort-link-button" type="submit" name="toggle" value="descending">&#x25BC;</button>
+                        <button class="sort-link-button" type="submit" name="toggle" value="ascending">&#x25B2;</button>
+                    </form>
                 </td>
                 <td>Is Co-President</td>
             </tr>

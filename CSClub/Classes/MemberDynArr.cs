@@ -112,8 +112,18 @@ public class MemberDynArr : IEnumerable<ClubMember>
 		arr = context.Members.ToArray();
 	}
 
+	public void Sort(string sortBy, string toggle)
+	{
+		if (sortBy == "name")
+			SortByName(toggle);
+        else if (sortBy == "grade")
+            SortByGrade(toggle);
+        else if (sortBy == "meetingsAttended")
+            SortByMeetings(toggle);
+    }
+
 	// Bubblesort to Sort by Name
-	public void SortByName(string? toggle)
+	private void SortByName(string? toggle)
 	{
         for (int i = 0; i<len-1;i++)
 			for (int j = 0; j<len-i-1; j++)
@@ -125,12 +135,12 @@ public class MemberDynArr : IEnumerable<ClubMember>
 				}
 
         if (!String.IsNullOrEmpty(toggle))
-            if (toggle == "a")
+            if (toggle == "ascending")
                 Reverse();
     }
 
-	// Bubblesort to Sort by Grade
-    public void SortByGrade(string? toggle)
+    // Bubblesort to Sort by Grade
+    private void SortByGrade(string? toggle)
     {
         for (int i = 0; i < len - 1; i++)
             for (int j = 0; j < len - i - 1; j++)
@@ -142,12 +152,12 @@ public class MemberDynArr : IEnumerable<ClubMember>
                 }
 
 		if (!String.IsNullOrEmpty(toggle))
-			if(toggle == "a")
+			if(toggle == "ascending")
 				Reverse();
     }
 
-	// Selection Sort to Sort by Meetings
-    public void SortByMeetings(string? toggle)
+    // Selection Sort to Sort by Meetings
+    private void SortByMeetings(string? toggle)
     {
 		int min;
         for (int i = 0; i<len-1;i++)
@@ -164,7 +174,7 @@ public class MemberDynArr : IEnumerable<ClubMember>
 		}
 
         if (!String.IsNullOrEmpty(toggle))
-            if (toggle == "a")
+            if (toggle == "ascending")
                 Reverse();
     }
 
