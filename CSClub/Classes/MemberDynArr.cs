@@ -14,10 +14,12 @@ public class MemberDynArr : IEnumerable<ClubMember>
 	// Props
 	public int Len { get => len; }
 	public int Size { get => size; }
-	public ClubMember[] arr { get; set; }
+	public ClubMember this[int i] { get => arr[i]; set => arr[i] = value; }
 
-	// Ctors
-	public MemberDynArr()
+    private ClubMember[] arr { get; set; }
+
+    // Ctors
+    public MemberDynArr()
 	{
 		len = 0;
 		size = 4;
@@ -104,8 +106,11 @@ public class MemberDynArr : IEnumerable<ClubMember>
         arr = temp;
         size = len;
     }
-
-	// TODO: BOGOSORT
+	
+	public void Sync(ApplicationDbContext context)
+	{
+		arr = context.Members.ToArray();
+	}
 
 	// Bubblesort to Sort by Name
 	public void SortByName(string? toggle)

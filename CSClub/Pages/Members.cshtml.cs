@@ -14,21 +14,25 @@ public class MembersModel : PageModel
 {
     public MemberDynArr Members { get; set; }
 
-    public string CurrOrder { get; set; }
-
     private ApplicationDbContext _context;
 
     public MembersModel(ApplicationDbContext context)
     {
         _context = context;
 
-        CurrOrder = "Ascending";
-
-
         Members = new MemberDynArr();
-        foreach (var m in _context.Members)
-            Members.Add(m);
+
+        try
+        {
+            foreach (var m in _context.Members)
+                Members.Add(m);
+        }
+        catch
+        {
+            Members.Add(new ClubMember("Database Connection Error", "X"));
+        }
         Members.Compress();
+    
     }
 
     public void OnGet(string? sortBy, string? toggle)

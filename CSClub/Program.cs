@@ -9,6 +9,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+builder.Services.AddAuthentication("CookieAuth").AddCookie("CookieAuth", options =>
+{
+    options.Cookie.Name = "CookieAuth";
+});
 builder.Services.AddRazorPages();
 
 
@@ -28,6 +32,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
