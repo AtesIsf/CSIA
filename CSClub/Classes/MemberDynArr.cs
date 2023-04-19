@@ -5,63 +5,25 @@ using CSClub.Data;
 
 namespace CSClub.Classes;
 
-public class MemberDynArr : IEnumerable<ClubMember>
+public class MemberDynArr : MemberADT
 {
-	// Instance Vars
-	private int len;
-	private int size;
+    // Private Methods
 
-	// Props
-	public int Len { get => len; }
-	public int Size { get => size; }
-	public ClubMember this[int i] { get => arr[i]; set => arr[i] = value; }
-
-    private ClubMember[] arr { get; set; }
-
-    // Ctors
-    public MemberDynArr()
-	{
-		len = 0;
-		size = 4;
-		arr = new ClubMember[size];
-	}
-
-	public MemberDynArr(int presetSize)
-	{
-		if (presetSize <= 0) throw new ArgumentOutOfRangeException();
-
-		len = 0;
-		size = presetSize;
-		arr = new ClubMember[size];
-	}
-
-	// Private Methods
-	private bool isFull()
-	{
-		return size == len;
-	}
-
-	private void Resize()
+    private void Resize()
 	{
         var temp = new ClubMember[size+4];
-        for (int i = 0; i < len; i++)
+        for (int i = 0; i < length; i++)
             temp[i] = arr[i];
         arr = temp;
 		size += 4;
     }
 
-	private int GradeToNumber(string grade)
-	{
-		if (grade == "Prep") return 1;
-		return Convert.ToInt32(grade);
-    }
-
 	// Public Methods
-    public void Add(ClubMember mem)
+    public void Add(ClubMember member)
 	{
-		if (isFull()) Resize();
-		arr[len] = mem;
-		len++;
+		if (IsFull()) Resize();
+		arr[length] = member;
+        length++;
 	}
 
 	public ClubMember? Remove(string name)
@@ -69,16 +31,16 @@ public class MemberDynArr : IEnumerable<ClubMember>
 		if (!Includes(name)) return null;
 
 		ClubMember temp;
-		var tempArr = new ClubMember[len - 1];
+		var tempArr = new ClubMember[length - 1];
 
 		int counter = 0;
-		for (int i = 0; i<len; i++)
+		for (int i = 0; i< length; i++)
 		{
 			if (arr[i].Name == name)
 			{
 				temp = arr[i];
 				arr = tempArr;
-				len--;
+                length--;
                 return temp;
             }
 			tempArr[counter] = arr[i];
@@ -88,114 +50,39 @@ public class MemberDynArr : IEnumerable<ClubMember>
 		return null;
 	}
 
-    public bool Includes(string name)
+    public ClubMember? Remove(int id)
     {
-        for (int i = 0; i < len; i++)
-            if (arr[i].Name == name)
-                return true;
-        return false;
+        if (!Includes(id)) return null;
+
+        ClubMember temp;
+        var tempArr = new ClubMember[length - 1];
+
+        int counter = 0;
+        for (int i = 0; i < length; i++)
+        {
+            if (arr[i].Id == id)
+            {
+                temp = arr[i];
+                arr = tempArr;
+                length--;
+                return temp;
+            }
+            tempArr[counter] = arr[i];
+            counter++;
+        }
+        // This never gets reached
+        return null;
     }
 
     public void Compress()
     {
-        if (isFull()) return;
+        if (IsFull()) return;
 
-        var temp = new ClubMember[len];
-        for (int i = 0; i < len; i++)
+        var temp = new ClubMember[length];
+        for (int i = 0; i < length; i++)
             temp[i] = arr[i];
         arr = temp;
-        size = len;
-    }
-	
-	public void Sync(ApplicationDbContext context)
-	{
-		arr = context.Members.ToArray();
-	}
-
-	public void Sort(string sortBy, string toggle)
-	{
-		if (sortBy == "name")
-			SortByName(toggle);
-        else if (sortBy == "grade")
-            SortByGrade(toggle);
-        else if (sortBy == "meetingsAttended")
-            SortByMeetings(toggle);
-    }
-
-	// Bubblesort to Sort by Name
-	private void SortByName(string? toggle)
-	{
-        for (int i = 0; i<len-1;i++)
-			for (int j = 0; j<len-i-1; j++)
-				if (arr[j].Name.ToLower()[0] > arr[j + 1].Name.ToLower()[0])
-				{
-					var temp = arr[j];
-					arr[j] = arr[j + 1];
-					arr[j + 1] = temp;
-				}
-
-        if (!String.IsNullOrEmpty(toggle))
-            if (toggle == "ascending")
-                Reverse();
-    }
-
-    // Bubblesort to Sort by Grade
-    private void SortByGrade(string? toggle)
-    {
-        for (int i = 0; i < len - 1; i++)
-            for (int j = 0; j < len - i - 1; j++)
-                if (GradeToNumber(arr[j].Grade) < GradeToNumber(arr[j + 1].Grade))
-                {
-                    var temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                }
-
-		if (!String.IsNullOrEmpty(toggle))
-			if(toggle == "ascending")
-				Reverse();
-    }
-
-    // Selection Sort to Sort by Meetings
-    private void SortByMeetings(string? toggle)
-    {
-		int min;
-        for (int i = 0; i<len-1;i++)
-		{
-			min = i;
-			for (int j = i + 1; j < len; j++)
-				if (arr[j].MeetingsAttended > arr[min].MeetingsAttended)
-					min = j;
-
-			if (min == i) continue;
-			var temp = arr[min];
-			arr[min] = arr[i];
-			arr[i] = temp;
-		}
-
-        if (!String.IsNullOrEmpty(toggle))
-            if (toggle == "ascending")
-                Reverse();
-    }
-
-	public void Reverse()
-	{
-		var temp = new ClubMember[size];
-		for (int i = 0; i < len; i++)
-            temp[i] = arr[len-1-i];
-		arr = temp;
-	}
-
-    // Enumerator
-    IEnumerator<ClubMember> IEnumerable<ClubMember>.GetEnumerator()
-    {
-		for (int i = 0; i < len; i++)
-			yield return arr[i];
-    }
-
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return arr.GetEnumerator();
+        size = length;
     }
 }
 

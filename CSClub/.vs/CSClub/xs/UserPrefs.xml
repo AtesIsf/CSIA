@@ -1,21 +1,17 @@
 ﻿<Properties StartupConfiguration="{16783F1D-2DCA-47D7-A50A-04627DBADEC4}|https">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.CSClub PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Pages/Admin/Dashboard.cshtml.cs">
     <Files>
-      <File FileName="Pages/Admin/Dashboard.cshtml" Line="23" Column="37" />
-      <File FileName="Pages/Admin/Dashboard.cshtml.cs" Line="20" Column="18" />
+      <File FileName="Pages/Admin/Dashboard.cshtml" Line="4" Column="37" />
+      <File FileName="Pages/Admin/Dashboard.cshtml.cs" Line="35" Column="20" />
+      <File FileName="Classes/MemberDynArr.cs" Line="114" Column="21" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CSClub" expanded="True">
             <Node name="CSClub" expanded="True">
+              <Node name="Classes" expanded="True" />
               <Node name="Pages" expanded="True">
                 <Node name="Admin" expanded="True">
                   <Node name="Dashboard.cshtml" expanded="True">
@@ -23,8 +19,6 @@
                   </Node>
                   <Node name="SignOut.cshtml" expanded="True" />
                 </Node>
-                <Node name="Shared" expanded="True" />
-                <Node name="Members.cshtml" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -32,4 +26,10 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>
