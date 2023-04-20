@@ -3,12 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using CSClub.Data;
 
-namespace CSClub.Classes;
+namespace CSClub.ADT;
 
 public class MemberDynArr : MemberADT
 {
-    // Private Methods
+    // Ctors
+    public MemberDynArr() : base()
+    { }
 
+    public MemberDynArr(ClubMember[] members) : base(members)
+    { }
+
+    public MemberDynArr(int presetSize) : base(presetSize)
+    { }
+
+    // Private Methods
     private void Resize()
 	{
         var temp = new ClubMember[size+4];

@@ -15,12 +15,10 @@
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
     <None Remove="Microsoft.EntityFrameworkCore" />
     <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
-    <None Remove="Classes\" />
     <None Remove="Pages\Admin\CRUD\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
-    <Folder Include="Classes\" />
     <Folder Include="Pages\Admin\CRUD\" />
   </ItemGroup>
   <ItemGroup>

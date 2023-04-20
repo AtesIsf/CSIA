@@ -1,35 +1,27 @@
 ﻿<Properties StartupConfiguration="{16783F1D-2DCA-47D7-A50A-04627DBADEC4}|https">
-  <MonoDevelop.Ide.ItemProperties.CSClub PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workbench ActiveDocument="Pages/Admin/Dashboard.cshtml.cs">
     <Files>
-      <File FileName="Pages/Admin/Dashboard.cshtml" Line="4" Column="37" />
-      <File FileName="Pages/Admin/Dashboard.cshtml.cs" Line="35" Column="20" />
-      <File FileName="Classes/MemberDynArr.cs" Line="114" Column="21" />
+      <File FileName="Pages/Admin/Dashboard.cshtml" Line="38" Column="43" />
+      <File FileName="Pages/Admin/Dashboard.cshtml.cs" Line="32" Column="3" />
+      <File FileName="Pages/Admin/CRUD/ModifyMeetingsAttended.cshtml.cs" Line="46" Column="42" />
+      <File FileName="ADT/MemberBinSearchTree.cs" Line="88" Column="22" />
+      <File FileName="Pages/Admin/CRUD/ConfirmDelete.cshtml" Line="18" Column="12" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CSClub" expanded="True">
-            <Node name="CSClub" expanded="True">
-              <Node name="Classes" expanded="True" />
-              <Node name="Pages" expanded="True">
-                <Node name="Admin" expanded="True">
-                  <Node name="Dashboard.cshtml" expanded="True">
-                    <Node name="Dashboard.cshtml.cs" selected="True" />
-                  </Node>
-                  <Node name="SignOut.cshtml" expanded="True" />
-                </Node>
-              </Node>
-            </Node>
+            <Node name="CSClub" expanded="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.CSClub PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

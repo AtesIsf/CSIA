@@ -1,7 +1,7 @@
 ﻿using System;
 using CSClub.Data;
 
-namespace CSClub.Classes;
+namespace CSClub.ADT;
 
 public class MemberStack : MemberADT
 {
@@ -11,7 +11,14 @@ public class MemberStack : MemberADT
 		throw new InvalidOperationException("The stack must have a preset size!");
 	}
 
-	public void Push(ClubMember member)
+    public MemberStack(int presetSize) : base(presetSize)
+    { }
+
+    public MemberStack(ClubMember[] members) : base(members)
+	{ }
+
+    // Methods
+    public void Push(ClubMember member)
 	{
 		if (IsFull()) return;
 

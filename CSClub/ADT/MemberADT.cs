@@ -2,7 +2,7 @@
 using System.Collections;
 using CSClub.Data;
 
-namespace CSClub.Classes;
+namespace CSClub.ADT;
 
 public class MemberADT : IEnumerable<ClubMember>
 {
@@ -31,6 +31,13 @@ public class MemberADT : IEnumerable<ClubMember>
         length = 0;
         size = presetSize;
         arr = new ClubMember[size];
+    }
+
+    public MemberADT(ClubMember[] members)
+    {
+        arr = members;
+        size = members.Length;
+        length = members.Length;
     }
 
     // Methods

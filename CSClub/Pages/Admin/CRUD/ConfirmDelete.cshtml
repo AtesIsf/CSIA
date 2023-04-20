@@ -1,0 +1,19 @@
+﻿@page
+@model CSClub.Pages.Admin.CRUD.ConfirmDeleteModel
+@{
+}
+
+@if (Model.Member != null)
+{
+    <h2>Are you sure that you want to delete "@Model.Member.Name"?</h2>
+}
+<div style="display: inline-block;">
+    <form method="post">
+        <button class="btn btn-danger" name="id" value="@Model.Member.Id" asp-page="/Admin/CRUD/DeleteMember">
+            Yes
+        </button>
+        <button asp-page="/Admin/Dashboard" class="btn btn-primary">
+            No
+        </button>
+    </form>
+</div>

@@ -1,5 +1,5 @@
 ﻿using System;
-using CSClub.Classes;
+using CSClub.ADT;
 using CSClub.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;

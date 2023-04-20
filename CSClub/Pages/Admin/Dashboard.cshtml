@@ -26,16 +26,16 @@
                     <td>
                         @m.MeetingsAttended
                         <!--Input-->
-                        <form method="get" asp-page="/Admin/CRUD/ModifyMeetingsAttended">
+                        <form method="post" asp-page="/Admin/CRUD/ModifyMeetingsAttended">
                             <input type="hidden" name="id" value="@m.Id" />
-                            <button type="submit" name="inc" value="true" class="sort-link-button">+</button>
-                            <button type="submit" name="dec" value="true" class="sort-link-button">-</button>
+                            <button type="submit" name="operation" value="1" class="sort-link-button">+</button>
+                            <button type="submit" name="operation" value="0" class="sort-link-button">-</button>
                         </form>
                     </td>
                     <td>@m.IsCoPresident</td>
                     <td>
                         <!--Input-->
-                        <form method="get" asp-page="/Admin/CRUD/DeleteMember">
+                        <form method="post" asp-page="/Admin/CRUD/ConfirmDelete">
                             <input type="hidden" name="id" value="@m.Id" />
                             <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
@@ -46,18 +46,18 @@
     </table>
     <div>
         <!--Input-->
-        <form method="get" asp-page="/Admin/CRUD/AddMember">
+        <form method="post" asp-page="/Admin/CRUD/AddMember">
             <label for="name">Name</label>
-            <input type="text" name="param1" />
+            <input type="text" name="name" />
 
             <br />
 
             <label for="grade">Grade</label>
-            <input type="text" name="param2" />
+            <input type="text" name="grade" />
 
             <br />
 
-            <button type="submit" class="btn btn-secondary btn-sm" style="margin-top: 5px">Add</button>
+            <button type="submit" class="btn btn-primary btn-sm" style="margin-top: 5px">Add</button>
         </form>
     </div>
 </div>
