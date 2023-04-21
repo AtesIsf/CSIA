@@ -9,7 +9,7 @@ namespace CSClub.Pages.Admin;
 public class DashboardModel : PageModel
 {
 	// Props
-	public MemberDynArr Members { get; set; }
+	public MemberLL Members { get; set; }
 
 	private readonly ApplicationDbContext _context;
 
@@ -17,7 +17,7 @@ public class DashboardModel : PageModel
 	public DashboardModel(ApplicationDbContext context)
 	{
 		_context = context;
-		Members = new MemberDynArr();
+		Members = new MemberLL();
 
         try
         {
@@ -28,7 +28,6 @@ public class DashboardModel : PageModel
         {
             Members.Add(new ClubMember("Database Connection Error", "X"));
         }
-        Members.Compress();
 	}
 
 	// Methods

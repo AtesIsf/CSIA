@@ -7,17 +7,17 @@ namespace CSClub.ADT;
 public class MemberBinSearchTree
 {
 	// Props
-	public MemberNode? Head { get; set; }
+	public BSTNode? Head { get; set; }
 
 	// Ctors
-	public MemberBinSearchTree(MemberNode node)
+	public MemberBinSearchTree(BSTNode node)
 	{
 		Head = node;
 	}
 
 	public MemberBinSearchTree(ClubMember member)
 	{
-		Head = new MemberNode(member);
+		Head = new BSTNode(member);
 	}
 
     public MemberBinSearchTree(ClubMember[] arr)
@@ -29,7 +29,7 @@ public class MemberBinSearchTree
 	// Methods
 	public void Add(ClubMember member)
 	{
-		var toBeAdded = new MemberNode(member);
+		var toBeAdded = new BSTNode(member);
 		var currNode = Head;
 
         if (Head == null)
@@ -71,7 +71,7 @@ public class MemberBinSearchTree
 	}
 
 	// Private Methods
-	private ClubMember? Search(int id, MemberNode? currNode)
+	private ClubMember? Search(int id, BSTNode? currNode)
 	{
 		if (currNode == null)
 			return null;
@@ -90,16 +90,15 @@ public class MemberBinSearchTree
 	}
 }
 
-public class MemberNode
+public class BSTNode : MemberNode
 {
 	// Props
-	public ClubMember Val { get; set; }
-	public MemberNode? Left { get; set; }
-	public MemberNode? Right { get; set; }
+	public BSTNode? Left { get=> (BSTNode?)Next; set=> Next = (BSTNode?)value; }
+	// This may be polymorphism^^
+	
+	public BSTNode? Right { get; set; }
 
 	// Ctors
-	public MemberNode(ClubMember member)
-	{
-		Val = member;
-	}
+	public BSTNode(ClubMember member) : base(member)
+	{ }
 }
