@@ -166,7 +166,7 @@ public class MemberDynArr : ILinearMemberADT
         for (int i = 0; i < length; i++)
             temp[i] = arr[i];
         arr = temp;
-		size *= 4;
+		size *= 2;
     }
     
     private int GradeToNumber(string grade)
