@@ -5,7 +5,7 @@
 namespace IA_CSClub.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class Mig : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -39,6 +39,20 @@ namespace IA_CSClub.Migrations
                 {
                     table.PrimaryKey("PK_Members", x => x.Id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Teachers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Uname = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Pw = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Teachers", x => x.Id);
+                });
         }
 
         /// <inheritdoc />
@@ -49,6 +63,9 @@ namespace IA_CSClub.Migrations
 
             migrationBuilder.DropTable(
                 name: "Members");
+
+            migrationBuilder.DropTable(
+                name: "Teachers");
         }
     }
 }

@@ -23,7 +23,8 @@ public class DeleteMemberModel : PageModel
 
     public IActionResult OnGet()
     {
-        if (HttpContext.User.Identity.IsAuthenticated)
+        var adminCookie = HttpContext.Request.Cookies[Constants.ADMIN_COOKIE_NAME];
+        if (!string.IsNullOrEmpty(adminCookie))
             return RedirectToPage("/Admin/Dashboard");
         return RedirectToPage("/Admin/Login");
     }

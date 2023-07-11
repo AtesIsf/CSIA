@@ -1,11 +1,10 @@
 ﻿@page
-@model CSClub.Pages.Account.LoginModel
+@model CSClub.Pages.Teacher.LoginModel
 @{
-    ViewData["Title"] = "Login Page";
 }
 
 <div class="container border" style="padding: 20px;">
-    <h1>Admin Login</h1>
+    <h1>Teacher Login</h1>
     <form method="post">
 
         <div class="text-danger" asp-validation-summary="ModelOnly"></div>
@@ -51,4 +50,4 @@
 </div>
 
 <a class="btn btn-secondary btn-sm" style="margin-top: 50px;" asp-page="/Members">Go Back</a>
-<a class="btn btn-secondary btn-sm" style="margin-top: 50px;" asp-page="/Teacher/Login">Teacher Login</a>
+<a class="btn btn-secondary btn-sm" style="margin-top: 50px;" asp-page="/Admin/Login">Admin Login</a>

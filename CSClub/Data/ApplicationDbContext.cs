@@ -9,6 +9,8 @@ public class ApplicationDbContext : DbContext
 
 	public DbSet<AdminModel> Admins { get; set; }
 
+	public DbSet<TeacherModel> Teachers { get; set; }
+
 	public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
 	{
 

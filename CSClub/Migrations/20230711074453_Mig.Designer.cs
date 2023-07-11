@@ -11,18 +11,39 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IA_CSClub.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230320085011_Initial")]
-    partial class Initial
+    [Migration("20230711074453_Mig")]
+    partial class Mig
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.4")
+                .HasAnnotation("ProductVersion", "7.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("CSClub.Data.AdminModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Pw")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Uname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Admins");
+                });
 
             modelBuilder.Entity("CSClub.Data.ClubMember", b =>
                 {
@@ -51,7 +72,7 @@ namespace IA_CSClub.Migrations
                     b.ToTable("Members");
                 });
 
-            modelBuilder.Entity("IA_CSClub.Data.AdminModel", b =>
+            modelBuilder.Entity("CSClub.Data.TeacherModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -69,7 +90,7 @@ namespace IA_CSClub.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Admins");
+                    b.ToTable("Teachers");
                 });
 #pragma warning restore 612, 618
         }

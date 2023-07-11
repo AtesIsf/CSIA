@@ -28,7 +28,8 @@ public class ConfirmDeleteModel : PageModel
     // Methods
     public IActionResult OnGet()
     {
-        if (HttpContext.User.Identity.IsAuthenticated)
+        var adminCookie = HttpContext.Request.Cookies[Constants.ADMIN_COOKIE_NAME];
+        if (!string.IsNullOrEmpty(adminCookie))
             return Page();
         return RedirectToPage("/Admin/Login");
     }

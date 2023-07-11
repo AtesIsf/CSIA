@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.ComponentModel.DataAnnotations;
-using CSClub.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
+using System.Threading.Tasks;
+using CSClub.Data;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CSClub.Pages.Account;
+namespace CSClub.Pages.Teacher;
 
 public class LoginModel : PageModel
 {
@@ -24,14 +27,14 @@ public class LoginModel : PageModel
     // Methods
     public IActionResult OnGet()
     {
-        // Check if there is a teacher cookie
-        var teacherCookie = HttpContext.Request.Cookies[Constants.TEACHER_COOKIE_NAME];
-        if (!string.IsNullOrEmpty(teacherCookie))
-            return RedirectToPage("/CookieError");
-        
+        // Check if this session has an admin cookie too
         var adminCookie = HttpContext.Request.Cookies[Constants.ADMIN_COOKIE_NAME];
         if (!string.IsNullOrEmpty(adminCookie))
-            return RedirectToPage("/Admin/Dashboard");
+            return RedirectToPage("/CookieError");
+        
+        var teacherCookie = HttpContext.Request.Cookies[Constants.TEACHER_COOKIE_NAME];
+        if (!string.IsNullOrEmpty(teacherCookie))
+            return RedirectToPage("/Teacher/Logs");
         return Page();
     }
 
@@ -42,9 +45,9 @@ public class LoginModel : PageModel
         // Verify Login
         try
         {
-            if (_context.Admins.ToList().Where(x => x.Uname == Credential.Username).ToList().Count > 0
+            if (_context.Teachers.ToList().Where(x => x.Uname == Credential.Username).ToList().Count > 0
                     &&
-                _context.Admins.ToList().Where(x => x.Pw == Credential.Password).ToList().Count > 0)
+                _context.Teachers.ToList().Where(x => x.Pw == Credential.Password).ToList().Count > 0)
             {
                 var rng = new Random();
 
@@ -52,18 +55,18 @@ public class LoginModel : PageModel
                 {
                     // I can't believe that this worked
                     new Claim(ClaimTypes.Name, $"{Credential.Username}-{rng.NextInt64()}")
-                }, Constants.ADMIN_COOKIE_NAME));
+                }, Constants.TEACHER_COOKIE_NAME));
 
-                await HttpContext.SignInAsync(Constants.ADMIN_COOKIE_NAME, claimsPrincipal);
+                await HttpContext.SignInAsync(Constants.TEACHER_COOKIE_NAME, claimsPrincipal);
 
-                return RedirectToPage("/Admin/Dashboard");
+                return RedirectToPage("/Teacher/Logs");
             }
         }
         catch
         {
             return RedirectToPage("/Error");
         }
-
+        
         return Page();
     }
 }

@@ -16,10 +16,14 @@
     <None Remove="Microsoft.EntityFrameworkCore" />
     <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
     <None Remove="Pages\Admin\CRUD\" />
+    <None Remove="Migrations\" />
+    <None Remove="Pages\Teacher\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="Pages\Admin\CRUD\" />
+    <Folder Include="Migrations\" />
+    <Folder Include="Pages\Teacher\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">

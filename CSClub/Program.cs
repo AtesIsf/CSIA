@@ -9,10 +9,15 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
-builder.Services.AddAuthentication("CookieAuth").AddCookie("CookieAuth", options =>
-{
-    options.Cookie.Name = "CookieAuth";
-});
+builder.Services.AddAuthentication(Constants.ADMIN_COOKIE_NAME)
+    .AddCookie(Constants.ADMIN_COOKIE_NAME, options =>
+    {
+        options.Cookie.Name = Constants.ADMIN_COOKIE_NAME;
+    })
+    .AddCookie(Constants.TEACHER_COOKIE_NAME, options =>
+    {
+        options.Cookie.Name = Constants.TEACHER_COOKIE_NAME;
+    });
 builder.Services.AddRazorPages();
 
 
