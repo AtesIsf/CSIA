@@ -1,14 +1,21 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using CSClub.Data;
+using CSClub.ADT;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+// DB
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+// The Page Stack for the Go Back button
+builder.Services.AddSingleton<PageStack>();
+
+// Authentication
 builder.Services.AddAuthentication(Constants.ADMIN_COOKIE_NAME)
     .AddCookie(Constants.ADMIN_COOKIE_NAME, options =>
     {
@@ -18,8 +25,8 @@ builder.Services.AddAuthentication(Constants.ADMIN_COOKIE_NAME)
     {
         options.Cookie.Name = Constants.TEACHER_COOKIE_NAME;
     });
-builder.Services.AddRazorPages();
 
+builder.Services.AddRazorPages();
 
 
 var app = builder.Build();
@@ -43,4 +50,3 @@ app.UseAuthorization();
 app.MapRazorPages();
 
 app.Run();
-

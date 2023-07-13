@@ -15,12 +15,14 @@ public class MembersModel : PageModel
     // Props
     public MemberDynArr Members { get; set; }
 
-    private ApplicationDbContext _context;
+    private readonly ApplicationDbContext _context;
+    private readonly PageStack _pageStack;
 
     // Ctors
-    public MembersModel(ApplicationDbContext context)
+    public MembersModel(ApplicationDbContext context, PageStack pageStack)
     {
         _context = context;
+        _pageStack = pageStack;
 
         Members = new MemberDynArr();
 
@@ -38,6 +40,15 @@ public class MembersModel : PageModel
     }
 
     // Methods
+    public IActionResult OnGet()
+    {
+        var last = _pageStack.Peek();
+        if (last == Request.Path)
+            return Page();
+        _pageStack.Push(Request.Path);
+        return Page();
+    }
+
     public IActionResult OnPost()
     {
         var sortBy = Request.Form["sortBy"];
@@ -45,5 +56,16 @@ public class MembersModel : PageModel
 
         Members.Sort(sortBy, toggle);
         return Page();
+    }
+
+    public IActionResult OnPostGoBack()
+    {
+        var path = _pageStack.Pop();
+        if (path == Request.Path)
+            path = _pageStack.Pop();
+
+        if (string.IsNullOrEmpty(path))
+            return Page();
+        return RedirectToPage(path);
     }
 }   

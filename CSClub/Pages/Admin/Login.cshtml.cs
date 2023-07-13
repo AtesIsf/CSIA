@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using CSClub.Data;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
+using CSClub.ADT;
 
 namespace CSClub.Pages.Account;
 
@@ -14,11 +15,13 @@ public class LoginModel : PageModel
     public CredentialModel Credential { get; set; }
 
     private ApplicationDbContext _context;
+    private readonly PageStack _pageStack;
 
     // Ctors
-    public LoginModel(ApplicationDbContext context)
+    public LoginModel(ApplicationDbContext context, PageStack pageStack)
     {
         _context = context;
+        _pageStack = pageStack;
     }
 
     // Methods
@@ -65,5 +68,16 @@ public class LoginModel : PageModel
         }
 
         return Page();
+    }
+
+    public IActionResult OnPostGoBack()
+    {
+        var path = _pageStack.Pop();
+        if (path == Request.Path)
+            path = _pageStack.Pop();
+
+        if (string.IsNullOrEmpty(path))
+            return Page();
+        return RedirectToPage(path);
     }
 }

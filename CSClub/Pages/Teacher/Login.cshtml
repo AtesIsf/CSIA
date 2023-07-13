@@ -49,5 +49,8 @@
 
 </div>
 
-<a class="btn btn-secondary btn-sm" style="margin-top: 50px;" asp-page="/Members">Go Back</a>
 <a class="btn btn-secondary btn-sm" style="margin-top: 50px;" asp-page="/Admin/Login">Admin Login</a>
+<!--Go Back Button-->
+<form method="post" asp-page-handler="GoBack">
+    <button class="btn btn-secondary" style="margin-top: 50px;" type="submit">Go Back</button>
+</form>
