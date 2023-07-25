@@ -14,7 +14,7 @@ public class LoginModel : PageModel
     [BindProperty]
     public CredentialModel Credential { get; set; }
 
-    private ApplicationDbContext _context;
+    private readonly ApplicationDbContext _context;
     private readonly PageStack _pageStack;
 
     // Ctors

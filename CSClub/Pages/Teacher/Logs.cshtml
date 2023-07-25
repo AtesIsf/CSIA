@@ -5,7 +5,7 @@
 
 @if (!string.IsNullOrEmpty(HttpContext.Request.Cookies["AdminCookie"]))
 {
-    <a class="btn btn-primary" style="margin-top: 50px;">Edit Logs</a>
+    <a class="btn btn-primary" style="margin-top: 50px;" asp-page="/Admin/AddLog">Add a Log</a>
 }
 
 <!--Go Back Button-->

@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/atesisfendiyaroglu/Programming/Misc/CSIA/CSClub
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/atesisfendiyaroglu/Programming/Misc/CSIA/CSClub/Pages/Admin/AddLog.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWRtaW4vQWRkTG9nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/atesisfendiyaroglu/Programming/Misc/CSIA/CSClub/Pages/Admin/CRUD/AddMember.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWRtaW4vQ1JVRC9BZGRNZW1iZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

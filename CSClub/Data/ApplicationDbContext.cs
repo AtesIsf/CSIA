@@ -11,6 +11,8 @@ public class ApplicationDbContext : DbContext
 
 	public DbSet<TeacherModel> Teachers { get; set; }
 
+	public DbSet<LogModel> Logs { get; set; }
+
 	public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
 	{
 

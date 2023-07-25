@@ -1,0 +1,76 @@
+﻿@page
+@model CSClub.Pages.Admin.AddLogModel
+@{
+}
+
+<div class="container border" style="padding: 20px;">
+    <h1>Add a Meeting Log</h1>
+    <form method="post" asp-page-handler="AddLog">
+
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label for="date">Date</label>
+            </div>
+
+            <div class="col-5">
+                <input type="date" name="date" class="form-control" required/>
+            </div>
+
+            <span class="text-danger" validation-for="date"></span>
+        </div>
+
+        <br />
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label for="entry">Entry</label>
+            </div>
+
+            <div class="col-5">
+                <textarea id="entry" name="entry" class="form-control" rows="6"></textarea>
+            </div>
+
+            <!--Table-->
+            <div class="col-3">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Attended</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var member in @Model.Members)
+                        {
+                            <tr>
+                                <td>@member.Name</td>
+                                <td>
+                                    <input type="checkbox" name="ids" value="@member.Id" />
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <span class="text-danger" validation-for="entry"></span>
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col-2">
+                <input type="submit" , class="btn btn-primary" value="Add">
+            </div>
+
+            <div class="col-5"></div>
+        </div>
+
+    </form>
+</div>
+
+<!--Go Back Button-->
+<form method="post" asp-page-handler="GoBack">
+    <button class="btn btn-secondary" style="margin-top: 50px;" type="submit">Go Back</button>
+</form>
