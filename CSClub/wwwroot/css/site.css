@@ -37,3 +37,24 @@ body {
 .sort-link-button:visited {
     color: black;
 }
+
+.condensed-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.condensed-table th,
+.condensed-table td {
+    padding: 4px 8px; /* Adjust the values to control cell padding */
+    font-size: 12px; /* Adjust the font size as needed */
+}
+
+/* Optional: Add styling to alternate rows for better readability */
+.condensed-table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Light gray background for even rows */
+}
+
+.condensed-table th {
+    background-color: #f0f0f0; /* Gray background for header row */
+    text-align: left;
+}

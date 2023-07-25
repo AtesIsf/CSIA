@@ -9,5 +9,6 @@ public class LogModel
     public string Entry { get; set; } = "";
     [DataType(DataType.Date)]
     public string Date { get; set; } = "";
+    public string Attendance { get; set; } = "";
 }
 

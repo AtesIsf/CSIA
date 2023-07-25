@@ -3,6 +3,30 @@
 @{
 }
 
+<h1 class="text-center" style="margin-bottom: 50px">Club Meeting Logs</h1>
+
+<div class="text-center" style="margin-top: 20px">
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Date</td>
+                <td>Entry</td>
+                <td>Attendance</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var log in Model.Logs)
+            {
+                <tr>
+                    <td>@log.Date</td>
+                    <td>@log.Entry</td>
+                    <td style="white-space: normal;">@log.Attendance</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
 @if (!string.IsNullOrEmpty(HttpContext.Request.Cookies["AdminCookie"]))
 {
     <a class="btn btn-primary" style="margin-top: 50px;" asp-page="/Admin/AddLog">Add a Log</a>

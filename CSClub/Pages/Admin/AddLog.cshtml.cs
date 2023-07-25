@@ -52,7 +52,7 @@ public class AddLogModel : PageModel
 
         using (_context)
         {
-            _context.Logs.Add(new LogModel() { Date = date, Entry = entry });
+            var members = "";
 
             if (!ids.All(String.IsNullOrEmpty))
                 foreach (var id in ids)
@@ -61,7 +61,10 @@ public class AddLogModel : PageModel
                     if (member == null)
                         continue;
                     member.MeetingsAttended++;
+                    members+=$"{member.Name} ";
                 }
+
+            _context.Logs.Add(new LogModel() { Date = date, Entry = entry, Attendance=members});
 
             _context.SaveChanges();
         }
