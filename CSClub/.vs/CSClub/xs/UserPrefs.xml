@@ -1,31 +1,27 @@
 ﻿<Properties StartupConfiguration="{16783F1D-2DCA-47D7-A50A-04627DBADEC4}|https">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.CSClub PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Pages/Admin/Dashboard.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Pages/Teacher/Logs.cshtml">
     <Files>
-      <File FileName="Pages/Admin/Dashboard.cshtml" Line="26" Column="25" />
+      <File FileName="Pages/Admin/CRUD/DeleteMember.cshtml.cs" Line="46" Column="6" />
+      <File FileName="Pages/Admin/CRUD/AddMember.cshtml.cs" Line="1" Column="1" />
+      <File FileName="Pages/Teacher/Logs.cshtml" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CSClub">
             <Node name="CSClub">
-              <Node name="Data" expanded="True" />
-              <Node name="Pages" expanded="True">
-                <Node name="Admin" expanded="True">
-                  <Node name="Dashboard.cshtml" selected="True" />
-                </Node>
-                <Node name="Teacher" expanded="True" />
-              </Node>
+              <Node name="Pages" selected="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.CSClub PreferredExecutionTarget="/Applications/Google Chrome.app" />
 </Properties>

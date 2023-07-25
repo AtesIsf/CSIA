@@ -12,6 +12,11 @@
                 <td>Date</td>
                 <td>Entry</td>
                 <td>Attendance</td>
+                @if (!string.IsNullOrEmpty(HttpContext.Request.Cookies["AdminCookie"]))
+                {
+                    <td></td>
+                    <td></td>
+                }
             </tr>
         </thead>
         <tbody>
@@ -21,6 +26,15 @@
                     <td>@log.Date</td>
                     <td>@log.Entry</td>
                     <td style="white-space: normal;">@log.Attendance</td>
+                    @if (!string.IsNullOrEmpty(HttpContext.Request.Cookies["AdminCookie"]))
+                    {
+                        <td>
+                            <a class="btn btn-primary" asp-page="/Admin/Logs/EditLog" asp-route-id="@log.Id">Edit</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-danger" asp-page="/Admin/Logs/DeleteLog" asp-route-id="@log.Id">Delete</a>
+                        </td>
+                    }
                 </tr>
             }
         </tbody>
@@ -29,7 +43,7 @@
 
 @if (!string.IsNullOrEmpty(HttpContext.Request.Cookies["AdminCookie"]))
 {
-    <a class="btn btn-primary" style="margin-top: 50px;" asp-page="/Admin/AddLog">Add a Log</a>
+    <a class="btn btn-primary" style="margin-top: 50px;" asp-page="/Admin/Logs/AddLog">Add a Log</a>
 }
 
 <!--Go Back Button-->
