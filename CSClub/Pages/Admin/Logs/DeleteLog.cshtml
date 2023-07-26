@@ -1,0 +1,26 @@
+﻿@page
+@model CSClub.Pages.Admin.Logs.DeleteLogModel
+@{
+    ViewData["Title"] = "Delete a Log";
+}
+
+@if (Model.Log != null)
+{
+    <h2>Are you sure that you want to delete the log from "@Model.Log.Date"?</h2>
+}
+<div style="display: inline-block;">
+
+    <br />
+
+    <form method="post" asp-page-handler="ConfirmDelete">
+        <input type="hidden" asp-for="@Model.Log.Id" />
+        <input type="hidden" asp-for="@Model.Log.Attendance" />
+        <input type="hidden" asp-for="@Model.Log.Date" />
+        <input type="hidden" asp-for="@Model.Log.Entry" />
+        <button class="btn btn-danger" type="submit">Yes</button>
+    </form>
+
+    <br />
+
+    <button asp-page="/Teacher/Logs" class="btn btn-primary">No</button>
+</div>

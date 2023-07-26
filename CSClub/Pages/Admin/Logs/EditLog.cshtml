@@ -1,0 +1,32 @@
+﻿@page
+@model CSClub.Pages.Admin.Logs.EditLogModel
+@{
+    ViewData["Title"] = "Edit a Log";
+}
+
+<h1>Edit Log</h1>
+<form method="post" asp-page-handler="SaveChanges">
+    <div class="form-group">
+        <label asp-for="@Model.Log.Date"></label>
+        <input asp-for="@Model.Log.Date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Log.Entry"></label>
+        <input asp-for="@Model.Log.Entry" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Log.Attendance"></label>
+        <input asp-for="@Model.Log.Attendance" class="form-control" />
+    </div>
+
+    <br />
+    <input type="hidden" asp-for="@Model.Log.Id" />
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+
+<br />
+
+<a class="btn btn-secondary" asp-page="/Teacher/Logs">Cancel</a>

@@ -1,6 +1,7 @@
 ﻿@page
 @model CSClub.Pages.Admin.CRUD.ConfirmDeleteModel
 @{
+    ViewData["Title"] = "Delete a Member";
 }
 
 @if (Model.Member != null)
@@ -8,10 +9,16 @@
     <h2>Are you sure that you want to delete "@Model.Member.Name"?</h2>
 }
 <div style="display: inline-block;">
+
+    <br />
+
     <form method="post">
         <button class="btn btn-danger" name="id" value="@Model.Member.Id" asp-page="/Admin/CRUD/DeleteMember">
             Yes
         </button>
+
+        <br />
+
         <button asp-page="/Admin/Dashboard" class="btn btn-primary">
             No
         </button>
