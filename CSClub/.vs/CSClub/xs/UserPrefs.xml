@@ -1,29 +1,30 @@
 ﻿<Properties StartupConfiguration="{16783F1D-2DCA-47D7-A50A-04627DBADEC4}|https">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Pages/Admin/Logs/DeleteLog.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Pages/Shared/_Layout.cshtml">
     <Files>
-      <File FileName="Pages/Teacher/Logs.cshtml" Line="46" Column="101" />
-      <File FileName="Pages/Admin/Logs/EditLog.cshtml" Line="23" Column="1" />
-      <File FileName="Pages/Admin/Logs/EditLog.cshtml.cs" Line="40" Column="54" />
-      <File FileName="Pages/Admin/Logs/DeleteLog.cshtml" Line="26" Column="7" />
-      <File FileName="Pages/Admin/Logs/DeleteLog.cshtml.cs" Line="37" Column="1" />
+      <File FileName="Pages/Shared/_Layout.cshtml" Line="13" Column="138" />
+      <File FileName="wwwroot/css/site.css" Line="60" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CSClub">
             <Node name="CSClub">
-              <Node name="Pages" selected="True" />
+              <Node name="Pages" expanded="True">
+                <Node name="Shared" expanded="True">
+                  <Node name="_Layout.cshtml" selected="True" />
+                </Node>
+              </Node>
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.CSClub PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.CSClub PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MultiItemStartupConfigurations />
 </Properties>

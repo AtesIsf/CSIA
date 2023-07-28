@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/IA_CSClub.styles.css" asp-append-version="true" />
 </head>
-<body>
+<body style="background-color: beige;">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color: tan;">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">CS Club</a>
+                <a type="button" class="btn btn-outline btn-lg"  asp-page="/Index">CS Club</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -20,15 +20,15 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Members">Members</a>
+                            <a type="button" class="btn btn-outline mx-1" asp-page="/Members">Members</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Teacher/Logs">Logs</a>
+                            <a type="button" class="btn btn-outline mx-1" asp-page="/Teacher/Logs">Logs</a>
                         </li>
                     </ul>
                 </div>
-                <a class="nav-link text-dark" asp-area="" asp-page="/Admin/Login">Admin Dashboard</a>
-                <a class="navbar-brand" asp-page="/Admin/SignOut">Sign Out</a>
+                <a type="button" class="btn btn-outline  mx-1" asp-page="/Admin/Login">Admin Dashboard</a>
+                <a type="button" class="btn btn-outline btn-lg" asp-page="/Admin/SignOut">Sign Out</a>
             </div>
         </nav>
     </header>

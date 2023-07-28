@@ -1,7 +1,7 @@
 ﻿@page
 @model CSClub.Pages.Admin.DashboardModel
 @{
-    ViewData["Title"] = "Dashboard";
+    ViewData["Title"] = "Admin Dashboard";
 }
 
 <h1 class="text-center" style="margin-bottom: 50px">CS Club Members</h1>
@@ -63,7 +63,7 @@
 </div>
 
 <!--Added this here too for convenience-->
-<a class="btn btn-primary" style="margin-top: 50px;" asp-page="/Admin/AddLog">Add a Log</a>
+<a class="btn btn-primary" style="margin-top: 50px;" asp-page="/Admin/Logs/AddLog">Add a Log</a>
 <!--Go Back Button-->
 <form method="post" asp-page-handler="GoBack">
     <button class="btn btn-secondary" style="margin-top: 50px;" type="submit">Go Back</button>
