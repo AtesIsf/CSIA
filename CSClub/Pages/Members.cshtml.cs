@@ -23,20 +23,16 @@ public class MembersModel : PageModel
     {
         _context = context;
         _pageStack = pageStack;
-
-        Members = new MemberDynArr();
-
+        
         try
         {
-            foreach (var m in _context.Members)
-                Members.Add(m);
+            Members = new MemberDynArr(_context.Members.ToArray());
         }
         catch
         {
             Members.Add(new ClubMember("Database Connection Error", "X"));
         }
         Members.Compress();
-    
     }
 
     // Methods

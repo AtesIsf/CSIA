@@ -4,7 +4,6 @@ using CSClub.Data;
 
 namespace CSClub.ADT;
 
-// TODO: Make this inherit from MemberADT
 public class MemberLL : ILinearMemberADT
 {
     // Instance Vars

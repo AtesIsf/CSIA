@@ -158,7 +158,7 @@ public class MemberDynArr : ILinearMemberADT
         else if (sortBy == "meetingsAttended")
             SortByMeetings(toggle);
     }
-    // Private Methods
+    
     // Private Methods
     private void Resize()
 	{
