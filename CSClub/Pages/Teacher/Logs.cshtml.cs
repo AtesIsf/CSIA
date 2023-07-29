@@ -18,7 +18,22 @@ public class LogsModel : PageModel
         _pageStack = pageStack;
         _context = context;
 
-        Logs = _context.Logs.ToList();
+        try
+        {
+            Logs = _context.Logs.ToList();
+        }
+        catch
+        {
+            Logs = new List<LogModel>()
+            {
+                new LogModel()
+                {
+                    Entry = "Database Connection Error",
+                    Date = "X",
+                    Attendance = "X"
+                }
+            };
+        }
     }
 
     // Methods

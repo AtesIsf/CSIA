@@ -24,8 +24,10 @@ public class AddLogModel : PageModel
     {
         _context = context;
         _pageStack = pageStack;
+
         MemberBST = new MemberBinSearchTree(_context.Members.ToArray());
         Members = new MemberDynArr(_context.Members.ToArray());
+        
     }
 
     // Methods
