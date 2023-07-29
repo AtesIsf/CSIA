@@ -8,7 +8,7 @@ public class ClubMember
     public int Id { get; set; }
     public string Name { get; set; }
     public string Grade { get; set; }
-    public int MeetingsAttended { get; set; } = -1;
+    public int MeetingsAttended { get; set; } = 0;
     public bool IsCoPresident { get; set; } = false;
 
     // Ctors
