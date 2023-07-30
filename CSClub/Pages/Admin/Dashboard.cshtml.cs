@@ -12,13 +12,11 @@ public class DashboardModel : PageModel
 	public MemberLL Members { get; set; }
 
 	private readonly ApplicationDbContext _context;
-	private readonly PageStack _pageStack;
 
 	// Ctors
-	public DashboardModel(ApplicationDbContext context, PageStack pageStack)
+	public DashboardModel(ApplicationDbContext context)
 	{
 		_context = context;
-		_pageStack = pageStack;
 		Members = new MemberLL();
 
         try
@@ -37,22 +35,8 @@ public class DashboardModel : PageModel
 	{
         var adminCookie = HttpContext.Request.Cookies[Constants.ADMIN_COOKIE_NAME];
 		if (!string.IsNullOrEmpty(adminCookie))
-		{
-			_pageStack.Push(Request.Path);
 			return Page();
-		}
 		return RedirectToPage("/Admin/Login");
 	}
-
-	public IActionResult OnPostGoBack()
-	{
-        var path = _pageStack.Pop();
-		if (path == Request.Path)
-			path = _pageStack.Pop();
-
-		if (string.IsNullOrEmpty(path))
-			return Page();
-        return RedirectToPage(path);
-    }
 }
 

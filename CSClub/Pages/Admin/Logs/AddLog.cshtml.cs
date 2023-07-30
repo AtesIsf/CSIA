@@ -14,16 +14,14 @@ public class AddLogModel : PageModel
 {
     // Props
     private readonly ApplicationDbContext _context;
-    private readonly PageStack _pageStack;
 
     public MemberBinSearchTree MemberBST { get; set; }
     public MemberDynArr Members { get; set; }
 
     // Ctors
-    public AddLogModel(ApplicationDbContext context, PageStack pageStack)
+    public AddLogModel(ApplicationDbContext context)
     {
         _context = context;
-        _pageStack = pageStack;
 
         MemberBST = new MemberBinSearchTree(_context.Members.ToArray());
         Members = new MemberDynArr(_context.Members.ToArray());
@@ -35,10 +33,7 @@ public class AddLogModel : PageModel
     {
         var adminCookie = HttpContext.Request.Cookies[Constants.ADMIN_COOKIE_NAME];
         if (!string.IsNullOrEmpty(adminCookie))
-        {
-            _pageStack.Push(Request.Path);
             return Page();
-        }
         return RedirectToPage("/Admin/Login");
     }
 
@@ -71,16 +66,5 @@ public class AddLogModel : PageModel
             _context.SaveChanges();
         }
         return Page();
-    }
-
-    public IActionResult OnPostGoBack()
-    {
-        var path = _pageStack.Pop();
-        if (path == Request.Path)
-            path = _pageStack.Pop();
-
-        if (string.IsNullOrEmpty(path))
-            return Page();
-        return RedirectToPage(path);
     }
 }

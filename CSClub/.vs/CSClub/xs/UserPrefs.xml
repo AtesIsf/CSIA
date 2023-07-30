@@ -1,32 +1,18 @@
 ﻿<Properties StartupConfiguration="{16783F1D-2DCA-47D7-A50A-04627DBADEC4}|https">
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Data/ClubMember.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
     <Files>
-      <File FileName="Data/AdminModel.cs" />
-      <File FileName="Pages/Members.cshtml.cs" />
-      <File FileName="Pages/Admin/Logs/DeleteLog.cshtml" />
-      <File FileName="Pages/Admin/Logs/DeleteLog.cshtml.cs" Line="38" Column="47" />
-      <File FileName="Pages/Admin/CRUD/AddMember.cshtml.cs" Line="1" Column="1" />
-      <File FileName="Data/ClubMember.cs" Line="11" Column="50" />
+      <File FileName="Program.cs" Line="13" Column="4" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="CSClub" expanded="True">
+          <Node name="CSClub">
             <Node name="CSClub">
-              <Node name="Data" expanded="True">
-                <Node name="ClubMember.cs" selected="True" />
-              </Node>
-              <Node name="Pages" expanded="True">
-                <Node name="Admin" expanded="True">
-                  <Node name="CRUD" expanded="True">
-                    <Node name="AddMember.cshtml" expanded="True" />
-                  </Node>
-                  <Node name="Logs" expanded="True">
-                    <Node name="DeleteLog.cshtml" expanded="True" />
-                  </Node>
-                </Node>
-              </Node>
+              <Node name="Program.cs" selected="True" />
             </Node>
           </Node>
         </State>
@@ -34,9 +20,6 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.CSClub PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
 </Properties>

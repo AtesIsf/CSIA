@@ -15,13 +15,11 @@ public class LoginModel : PageModel
     public CredentialModel Credential { get; set; }
 
     private readonly ApplicationDbContext _context;
-    private readonly PageStack _pageStack;
 
     // Ctors
-    public LoginModel(ApplicationDbContext context, PageStack pageStack)
+    public LoginModel(ApplicationDbContext context)
     {
         _context = context;
-        _pageStack = pageStack;
     }
 
     // Methods
@@ -68,16 +66,5 @@ public class LoginModel : PageModel
         }
 
         return Page();
-    }
-
-    public IActionResult OnPostGoBack()
-    {
-        var path = _pageStack.Pop();
-        if (path == Request.Path)
-            path = _pageStack.Pop();
-
-        if (string.IsNullOrEmpty(path))
-            return Page();
-        return RedirectToPage(path);
     }
 }

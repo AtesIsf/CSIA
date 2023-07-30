@@ -16,13 +16,11 @@ public class MembersModel : PageModel
     public MemberDynArr Members { get; set; }
 
     private readonly ApplicationDbContext _context;
-    private readonly PageStack _pageStack;
 
     // Ctors
-    public MembersModel(ApplicationDbContext context, PageStack pageStack)
+    public MembersModel(ApplicationDbContext context)
     {
         _context = context;
-        _pageStack = pageStack;
         
         try
         {
@@ -30,21 +28,13 @@ public class MembersModel : PageModel
         }
         catch
         {
+            Members = new MemberDynArr();
             Members.Add(new ClubMember("Database Connection Error", "X"));
         }
         Members.Compress();
     }
 
     // Methods
-    public IActionResult OnGet()
-    {
-        var last = _pageStack.Peek();
-        if (last == Request.Path)
-            return Page();
-        _pageStack.Push(Request.Path);
-        return Page();
-    }
-
     public IActionResult OnPost()
     {
         var sortBy = Request.Form["sortBy"];
@@ -52,16 +42,5 @@ public class MembersModel : PageModel
 
         Members.Sort(sortBy, toggle);
         return Page();
-    }
-
-    public IActionResult OnPostGoBack()
-    {
-        var path = _pageStack.Pop();
-        if (path == Request.Path)
-            path = _pageStack.Pop();
-
-        if (string.IsNullOrEmpty(path))
-            return Page();
-        return RedirectToPage(path);
     }
 }   
